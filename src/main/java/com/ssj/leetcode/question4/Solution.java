@@ -18,6 +18,6 @@ class Solution {
 
 
     public static void main(String[] args) {
-        System.out.println(findMedianSortedArrays(new int[]{1, 2, 3, 4, 5}, new int[]{1, 2, 3, 4, 5}));
+        Solution solution = new Solution();
     }
 }
