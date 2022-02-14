@@ -3,6 +3,9 @@ package com.ssj.leetcode.question226;
 import com.ssj.util.TreeNode;
 import com.ssj.util.TreeUtil;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 给你一棵二叉树的根节点 root ，翻转这棵二叉树，并返回其根节点。
  * <p>
@@ -15,6 +18,7 @@ class Solution {
 
     /**
      * 深度递归 从叶子节点开始替换
+     *
      * @param root
      * @return
      */
@@ -28,6 +32,31 @@ class Solution {
         // 翻转
         root.left = right;
         root.right = left;
+        return root;
+    }
+
+
+    /**
+     * 广搜 从顶部节点开始替换
+     *
+     */
+    public TreeNode invertTreeBFS(TreeNode root) {
+        if (root == null)
+            return null;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            TreeNode rightTree = node.right;
+            node.right = node.left;
+            node.left = rightTree;
+            if (node.left != null) {
+                queue.offer(node.left);
+            }
+            if (node.right != null) {
+                queue.offer(node.right);
+            }
+        }
         return root;
     }
 
