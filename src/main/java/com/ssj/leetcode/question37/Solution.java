@@ -1,6 +1,7 @@
 package com.ssj.leetcode.question37;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -13,14 +14,14 @@ import java.util.List;
  * 数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。（请参考示例图）
  * 数独部分空格内已填入了数字，空白格用 '.' 表示。
  * <p>
- *
+ * <p>
  * 提示：
- *
+ * <p>
  * board.length == 9
  * board[i].length == 9
  * board[i][j] 是一位数字或者 '.'
  * 题目数据 保证 输入数独仅有一个解
- *
+ * <p>
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/sudoku-solver
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
@@ -54,6 +55,7 @@ class Solution {
     /**
      * 一个一个的处理spaces里面的空格
      * 深度优先搜索
+     *
      * @param board
      * @param pos
      */
@@ -91,8 +93,8 @@ class Solution {
     }
 
     /**
-     * @param i 横坐标
-     * @param j 纵坐标
+     * @param i     横坐标
+     * @param j     纵坐标
      * @param digit 目标数字的索引
      */
     public void flip(int i, int j, int digit) {
@@ -114,18 +116,21 @@ class Solution {
                 '.', '.', '.', '4', '1', '9', '.', '.', '5'}, {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
 
         Solution solution = new Solution();
-        System.out.println(Integer.toBinaryString(0x1ff));
-        System.out.println(Integer.toBinaryString(2));
-        System.out.println(Integer.toBinaryString(-2));
-        System.out.println(Integer.toBinaryString(2 & -2));
-        System.out.println(Integer.toBinaryString(2 & (~2 + 1)));
-        System.out.println(Integer.toBinaryString(~((1 << 9) - 1) & 0x1ff));
-        System.out.println(Integer.toBinaryString(11));
-        System.out.println(Integer.toBinaryString(11 - 1));
-        System.out.println(Integer.toBinaryString(11 & 10));
-        System.out.println(Integer.toBinaryString(10));
-        System.out.println(Integer.toBinaryString(10 - 1));
-        System.out.println(Integer.toBinaryString(10 & 9));
+        solution.solveSudoku(sudoku);
+        System.out.println(Arrays.deepToString(sudoku));
+
+//        System.out.println(Integer.toBinaryString(0x1ff));
+//        System.out.println(Integer.toBinaryString(2));
+//        System.out.println(Integer.toBinaryString(-2));
+//        System.out.println(Integer.toBinaryString(2 & -2));
+//        System.out.println(Integer.toBinaryString(2 & (~2 + 1)));
+//        System.out.println(Integer.toBinaryString(~((1 << 9) - 1) & 0x1ff));
+//        System.out.println(Integer.toBinaryString(11));
+//        System.out.println(Integer.toBinaryString(11 - 1));
+//        System.out.println(Integer.toBinaryString(11 & 10));
+//        System.out.println(Integer.toBinaryString(10));
+//        System.out.println(Integer.toBinaryString(10 - 1));
+//        System.out.println(Integer.toBinaryString(10 & 9));
 
     }
 }
