@@ -34,7 +34,37 @@ import java.util.List;
 class Solution {
 
 
+    /**
+     * 滚动数据 + 动态规划
+     *
+     * @param rowIndex
+     * @return
+     */
     public List<Integer> getRow(int rowIndex) {
+
+        // 声明对应行数据数量的数组
+        Integer[] dp = new Integer[rowIndex + 1];
+        // 填充1
+        Arrays.fill(dp, 1);
+        // 从第三行开始
+        for (int i = 2; i < dp.length; i++) {
+            // 倒序滚动数组 且 当前行首尾不处理默认为1
+            for (int j = i - 1; j > 0; j--){
+                dp[j] = dp[j] + dp[j - 1];
+            }
+        }
+        List<Integer> res = Arrays.asList(dp);
+        return res;
+    }
+
+
+    /**
+     * 滚动数组
+     *
+     * @param rowIndex
+     * @return
+     */
+    public List<Integer> getRowMy(int rowIndex) {
 
 
         if (rowIndex == 0) {
